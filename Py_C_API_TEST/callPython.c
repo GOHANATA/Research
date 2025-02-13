@@ -6,7 +6,7 @@ int main() {
     Py_Initialize();
 
     // Import the Python script (module)
-    PyObject *pName = PyUnicode_DecodeFSDefault("hello"); // "hello" is the name of the Python script (without .py)
+    PyObject *pName = PyUnicode_DecodeFSDefault("ollamatest"); // "ollamatest" is the name of the Python script (without .py)
     PyObject *pModule = PyImport_Import(pName);
 
     if (pModule != NULL) {
@@ -15,7 +15,7 @@ int main() {
 
         if (pFunc && PyCallable_Check(pFunc)) {
             // Call the Python function with arguments
-            PyObject *pArgs = PyTuple_Pack(1, PyUnicode_FromString("World"));
+            PyObject *pArgs = PyTuple_Pack(1, PyUnicode_FromString("Hello, how are you today?"));
             PyObject *pValue = PyObject_CallObject(pFunc, pArgs);
 
             if (pValue != NULL) {
@@ -44,4 +44,3 @@ int main() {
 
     return 0;
 }
-
